@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — CoffeeBook</title>
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Redirect to the visitor's language; default to Japanese.
+  var lang = (navigator.language || "ja").toLowerCase();
+  var page = "ja.html";
+  if (lang.startsWith("en")) page = "en.html";
+  else if (lang.startsWith("ko")) page = "ko.html";
+  else if (lang.startsWith("zh")) page = "zh.html";
+  location.replace(page);
+</script>
+</head>
+<body>
+<main>
+<h1>CoffeeBook — Privacy Policy</h1>
+<ul class="card-list">
+  <li><a href="ja.html">プライバシーポリシー(日本語)</a></li>
+  <li><a href="en.html">Privacy Policy (English)</a></li>
+  <li><a href="ko.html">개인정보 처리방침 (한국어)</a></li>
+  <li><a href="zh.html">隐私政策(中文)</a></li>
+</ul>
+</main>
+</body>
+</html>
