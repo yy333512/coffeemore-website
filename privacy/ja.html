@@ -23,7 +23,7 @@
 <h2>1. 収集する情報</h2>
 <p>本アプリは、以下の情報を収集します。</p>
 <ul>
-  <li><strong>アカウント情報</strong>: メールアドレスおよびパスワード。パスワードは暗号化(ハッシュ化)された形でのみ保存されます。</li>
+  <li><strong>アカウント情報</strong>: メールアドレスおよびパスワード。パスワードは暗号化(ハッシュ化)された形でのみ保存されます。GoogleアカウントまたはAppleアカウントでサインインした場合は、各プロバイダから提供されるメールアドレス等の情報。</li>
   <li><strong>プロフィール情報</strong>: ユーザーID、表示名、自己紹介など、ユーザーが任意で登録する情報。</li>
   <li><strong>投稿コンテンツ</strong>: コーヒーの記録、写真、評価、コメントなど、ユーザーが本アプリに投稿する情報。</li>
   <li><strong>ラベル読み取り用の画像</strong>: ラベル読み取り(スキャン)機能を利用した場合、撮影・選択した画像。</li>
@@ -46,8 +46,9 @@
 
 <h2>4. 外部サービスの利用(委託・データの保存先)</h2>
 <ol>
-  <li>本アプリのデータ(アカウント情報、投稿コンテンツ、画像等)は、クラウドサービス <strong>Supabase</strong> 上に保存されます。データの保管サーバーは日本国外に所在する場合があります。</li>
-  <li>ラベル読み取り機能を利用した場合、撮影・選択した画像は、テキスト情報の抽出のために <strong>Anthropic 社の AI API(Claude)</strong> に送信されます。送信された画像は抽出処理のためにのみ利用され、抽出結果の確認・保存はユーザー自身が行います。</li>
+  <li>本アプリのデータ(アカウント情報、投稿コンテンツ、画像等)は、<strong>Google Firebase</strong>(Firebase Authentication、Cloud Firestore、Cloud Storage)上に保存されます。データの保管サーバーは日本国外に所在する場合があります。</li>
+  <li>ラベル読み取り機能を利用した場合、撮影・選択した画像は、テキスト情報の抽出のために <strong>Google 社の AI API(Gemini)</strong> に送信されます。送信された画像は抽出処理のためにのみ利用され、抽出結果の確認・保存はユーザー自身が行います。</li>
+  <li>アカウント登録・ログインには、上記の Firebase Authentication に加え、<strong>Google Sign-In</strong> および <strong>Sign in with Apple</strong> を利用する場合があります。</li>
 </ol>
 
 <h2>5. 第三者提供</h2>
@@ -77,7 +78,7 @@
 
 <h2>11. お問い合わせ</h2>
 <p>本ポリシーに関するお問い合わせは、以下のフォームよりお願いします。<br>
-お問い合わせフォーム: <a href="https://forms.gle/SAS7pcBgkAw8B9MLA">https://forms.gle/SAS7pcBgkAw8B9MLA</a></p>
+お問い合わせフォーム: <a href="https://forms.gle/EqrdLGogdSPpTNsPA">https://forms.gle/EqrdLGogdSPpTNsPA</a></p>
 
 <p class="footer"><a href="../terms/ja.html">利用規約</a><br>© 2026 CoffeeMore</p>
 </main>

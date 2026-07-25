@@ -23,7 +23,7 @@
 <h2>1. Information We Collect</h2>
 <p>The App collects the following information:</p>
 <ul>
-  <li><strong>Account information</strong>: email address and password. Passwords are stored only in encrypted (hashed) form.</li>
+  <li><strong>Account information</strong>: email address and password. Passwords are stored only in encrypted (hashed) form. If you sign in with a Google or Apple account, information provided by that provider (such as your email address) is used instead.</li>
   <li><strong>Profile information</strong>: user ID, display name, bio, and other information the user registers voluntarily.</li>
   <li><strong>Posted content</strong>: coffee records, photos, ratings, comments, and other content the user posts to the App.</li>
   <li><strong>Images for label scanning</strong>: images taken or selected when using the label scanning feature.</li>
@@ -46,8 +46,9 @@
 
 <h2>4. Use of External Services (Processors and Data Storage)</h2>
 <ol>
-  <li>The App's data (account information, posted content, images, etc.) is stored on <strong>Supabase</strong>, a cloud service. Servers storing the data may be located outside Japan.</li>
-  <li>When the label scanning feature is used, the captured or selected image is sent to <strong>Anthropic's AI API (Claude)</strong> to extract text information. Transmitted images are used only for the extraction process; the user reviews and saves the extracted results.</li>
+  <li>The App's data (account information, posted content, images, etc.) is stored on <strong>Google Firebase</strong> (Firebase Authentication, Cloud Firestore, Cloud Storage). Servers storing the data may be located outside Japan.</li>
+  <li>When the label scanning feature is used, the captured or selected image is sent to <strong>Google's AI API (Gemini)</strong> to extract text information. Transmitted images are used only for the extraction process; the user reviews and saves the extracted results.</li>
+  <li>In addition to Firebase Authentication above, account registration and sign-in may use <strong>Google Sign-In</strong> and <strong>Sign in with Apple</strong>.</li>
 </ol>
 
 <h2>5. Disclosure to Third Parties</h2>
@@ -77,7 +78,7 @@
 
 <h2>11. Contact</h2>
 <p>For inquiries regarding this Policy, please use the form below:<br>
-Contact form: <a href="https://forms.gle/SAS7pcBgkAw8B9MLA">https://forms.gle/SAS7pcBgkAw8B9MLA</a></p>
+Contact form: <a href="https://forms.gle/EqrdLGogdSPpTNsPA">https://forms.gle/EqrdLGogdSPpTNsPA</a></p>
 
 <p class="footer"><a href="../terms/en.html">Terms of Service</a><br>© 2026 CoffeeMore</p>
 </main>
