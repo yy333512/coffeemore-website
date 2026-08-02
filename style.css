@@ -112,23 +112,18 @@ main.site-main {
   letter-spacing: -0.01em;
 }
 
-.tagline-ja {
-  margin: 0 0 0.4rem;
+.tagline-en {
+  margin: 0 0 2rem;
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--accent);
   line-height: 1.6;
 }
-.tagline-en {
-  margin: 0 0 2rem;
-  font-size: 1rem;
-  color: var(--muted);
-}
 
 .app-store-badge {
   display: inline-block;
   width: 168px;
-  aspect-ratio: 108.85157 / 40; /* intrinsic ratio of Apple's official badge SVG */
+  aspect-ratio: 119.66407 / 40; /* intrinsic ratio of Apple's official badge SVG */
 }
 .app-store-badge img {
   width: 100%;
