@@ -1,32 +1,52 @@
 :root {
-  /* Matches CoffeeMore/Theme/Palette.swift (the iOS app's color system). */
+  /* Brand colors — matches CoffeeMore/Theme/Palette.swift (the iOS app). */
   --bg: #F8F7F5;
   --bg-card: #FFFFFF;
   --fg: #1A1A1A;
-  --muted: #787878;
+  --muted: #77736F;
   --accent: #A86C3B;
-  --accent-dark: #7A4A26;
-  --accent-light: #F6F1EC;
-  --border: #EFECE8;
+  --accent-light: #F3ECE6;
+  --border: #E8E1D6;
+
+  --radius-card: 20px;
+  --radius-chip: 16px;
+  --container: 1120px;
 }
+
 * { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
 body {
   margin: 0;
-  padding: 2rem 1.25rem 4rem;
   background: var(--bg);
   color: var(--fg);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
     "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", sans-serif;
   line-height: 1.8;
+  overflow-x: hidden;
 }
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Legacy content pages (terms / privacy) ---------- */
 main {
   max-width: 720px;
   margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
 }
-h1 {
-  font-size: 1.6rem;
-  margin: 1.5rem 0 0.25rem;
-}
+h1 { font-size: 1.6rem; margin: 1.5rem 0 0.25rem; }
 h2 {
   font-size: 1.1rem;
   margin: 2.2rem 0 0.5rem;
@@ -35,11 +55,7 @@ h2 {
 }
 p, li { font-size: 0.95rem; }
 ul, ol { padding-left: 1.4rem; }
-a { color: var(--accent); }
-.lang-nav {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
+.lang-nav { font-size: 0.85rem; color: var(--muted); }
 .lang-nav a { margin-right: 0.75rem; text-decoration: none; }
 .lang-nav strong { margin-right: 0.75rem; color: var(--fg); }
 .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
@@ -47,57 +63,229 @@ a { color: var(--accent); }
 .card-list { list-style: none; padding: 0; }
 .card-list li { margin: 0.5rem 0; }
 
-.hero {
-  text-align: center;
-  padding-bottom: 1.5rem;
+/* Landing page <main> holds its own full-width sections; undo the
+   720px legal-document constraint above for it. */
+main.site-main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
-.hero .app-icon {
-  display: inline-flex;
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+.hero-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.hero-text { text-align: center; }
+@media (min-width: 900px) {
+  .hero-text { text-align: left; }
+}
+
+.hero-text .app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin: 0 auto 1.25rem;
+}
+@media (min-width: 900px) {
+  .hero-text .app-icon { margin: 0 0 1.25rem; }
+}
+
+.hero-text h1 {
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tagline-ja {
+  margin: 0 0 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.6;
+}
+.tagline-en {
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.app-store-badge {
+  display: inline-block;
+  width: 168px;
+  aspect-ratio: 108.85157 / 40; /* intrinsic ratio of Apple's official badge SVG */
+}
+.app-store-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trademark-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hero-phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.phone-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  filter: blur(70px);
+  opacity: 0.8;
+  z-index: 0;
+}
+.phone-frame {
+  position: relative;
+  z-index: 1;
+  width: min(72vw, 290px);
+  aspect-ratio: 1206 / 2622;
+  background: #111214;
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow: 0 24px 48px -24px rgba(26, 18, 10, 0.35);
+}
+.phone-frame picture,
+.phone-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Features ---------- */
+.features {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.features h2 {
+  border-top: none;
+  padding-top: 0;
+  margin: 0 0 2.5rem;
+  font-size: 1.5rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+}
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.1rem;
+  border-radius: var(--radius-chip);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 84px;
-  height: 84px;
-  border-radius: 22px;
-  background: var(--border);
-  color: var(--accent);
-}
-.hero h1 {
-  margin: 1rem 0 0.5rem;
-  font-size: 1.9rem;
-}
-.store-button {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 0.7rem 2rem;
-  border-radius: 999px;
-  background: var(--accent);
-  text-decoration: none;
-}
-.store-button .ja {
-  color: var(--bg);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.store-button .en {
-  color: var(--accent-light);
-  font-size: 0.75rem;
-}
-.features {
-  display: grid;
-  gap: 1.5rem;
-  margin: 2rem 0 1rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 .feature h3 {
-  font-size: 1rem;
-  margin: 0 0 0.35rem;
-  color: var(--accent);
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--fg);
 }
 .feature p {
   margin: 0;
   color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Legal ---------- */
+.legal {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.legal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.75rem;
+}
+.legal-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.75rem;
+  padding-top: 0;
+  border-top: none;
+  font-size: 1rem;
+}
+.legal-icon { color: var(--accent); flex-shrink: 0; }
+.lang-list { list-style: none; margin: 0; padding: 0; }
+.lang-list li { margin: 0; border-top: 1px solid var(--border); }
+.lang-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0.25rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.lang-list a:hover,
+.lang-list a:focus-visible {
+  color: var(--accent);
+}
+.lang-list a svg { color: var(--muted); flex-shrink: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-light);
+}
+.copyright {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
 }

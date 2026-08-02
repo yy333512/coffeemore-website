@@ -3,57 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="コーヒー豆のラベルを撮るだけで記録。CoffeeMoreはコーヒーの記録・共有アプリです。">
+<meta name="description" content="コーヒーバッグの写真を撮るだけで、豆の情報を自動入力。飲んだコーヒーを記録・検索・共有できるiOSアプリ「CoffeeMore」。">
 <meta name="apple-itunes-app" content="app-id=6784948494">
-<title>CoffeeMore — コーヒーを記録・共有するアプリ</title>
+<link rel="icon" type="image/png" href="assets/app-icon.png">
+<link rel="apple-touch-icon" href="assets/app-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CoffeeMore">
+<meta property="og:title" content="CoffeeMore — あなたのコーヒージャーニーを、もっと豊かに。">
+<meta property="og:description" content="コーヒーバッグの写真を撮るだけで、豆の情報を自動入力。飲んだコーヒーを記録・検索・共有できるiOSアプリ。">
+<meta property="og:image" content="https://coffeemore.net/assets/app-icon.png">
+<meta property="og:url" content="https://coffeemore.net/">
+<meta name="twitter:card" content="summary">
+<title>CoffeeMore — あなたのコーヒージャーニーを、もっと豊かに。</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<section class="hero">
-  <div class="app-icon" aria-hidden="true">
-    <svg viewBox="0 0 100 100" width="64" height="64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <ellipse cx="50" cy="50" rx="34" ry="42" transform="rotate(20 50 50)"/>
-      <path d="M50 14 C40 34, 40 66, 50 86" transform="rotate(20 50 50)"/>
-    </svg>
-  </div>
-  <h1>CoffeeMore</h1>
-  <a class="store-button" href="https://apps.apple.com/app/id6784948494">
-    <span class="ja">App Store でダウンロード</span>
-    <span class="en">Download on the App Store</span>
-  </a>
-</section>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <picture>
+        <source srcset="assets/app-icon.webp" type="image/webp">
+        <img class="app-icon" src="assets/app-icon.png" width="72" height="72" alt="CoffeeMoreアプリアイコン">
+      </picture>
+      <h1>CoffeeMore</h1>
+      <p class="tagline-ja">あなたのコーヒージャーニーを、<br>もっと豊かに。</p>
+      <p class="tagline-en">Scan. Log. Share. CoffeeMore.</p>
 
-<section class="features">
-  <div class="feature">
-    <h3>Snap the bag. We fill in the rest.</h3>
-    <p>豆の名前・焙煎所・産地・フレーバーを、写真から自動で入力。</p>
-  </div>
-  <div class="feature">
-    <h3>Share your coffee journey</h3>
-    <p>フォローした人の「今飲んでいる一杯」をタイムラインで発見。</p>
-  </div>
-  <div class="feature">
-    <h3>Every cup, logged and searchable</h3>
-    <p>評価・産地・テイスティングノートを、いつでも振り返って検索。</p>
-  </div>
-</section>
+      <a class="app-store-badge" href="https://apps.apple.com/app/id6784948494" aria-label="CoffeeMoreをApp Storeでダウンロード">
+        <img src="assets/app-store-badge-ja.svg" alt="Download on the App Store" loading="eager">
+      </a>
+      <p class="trademark-note">“Download on the App Store” is a trademark of Apple Inc.</p>
+    </div>
 
-<h2>利用規約 / Terms of Service</h2>
-<ul class="card-list">
-  <li><a href="terms/ja.html">日本語</a></li>
-  <li><a href="terms/en.html">English</a></li>
-  <li><a href="terms/ko.html">한국어</a></li>
-  <li><a href="terms/zh.html">中文</a></li>
-</ul>
-<h2>プライバシーポリシー / Privacy Policy</h2>
-<ul class="card-list">
-  <li><a href="privacy/ja.html">日本語</a></li>
-  <li><a href="privacy/en.html">English</a></li>
-  <li><a href="privacy/ko.html">한국어</a></li>
-  <li><a href="privacy/zh.html">中文</a></li>
-</ul>
-<p class="footer"><a href="https://forms.gle/EqrdLGogdSPpTNsPA" target="_blank" rel="noopener">Contact</a><br>© 2026 CoffeeMore</p>
+    <div class="hero-phone">
+      <div class="phone-glow" aria-hidden="true"></div>
+      <div class="phone-frame">
+        <picture>
+          <source srcset="assets/screenshot-records.webp" type="image/webp">
+          <img src="assets/screenshot-records.png" width="294" height="640"
+               alt="CoffeeMoreのRecords画面。記録したコーヒーの杯数・平均評価・産地数と、豆の名前・焙煎所・評価・フレーバーが並ぶ一覧が表示されている。">
+        </picture>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="site-main">
+  <section class="features" aria-labelledby="features-heading">
+    <h2 id="features-heading">CoffeeMoreの特徴</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8.5a1.5 1.5 0 0 1 1.5-1.5h1.4l.9-1.4A1.5 1.5 0 0 1 9.06 5h5.88a1.5 1.5 0 0 1 1.26.68l.9 1.32H18.5A1.5 1.5 0 0 1 20 8.5v8A1.5 1.5 0 0 1 18.5 18h-13A1.5 1.5 0 0 1 4 16.5z"/>
+            <circle cx="12" cy="12.2" r="3.4"/>
+          </svg>
+        </div>
+        <h3>Snap the bag.<br>We fill in the rest.</h3>
+        <p>豆の名前・焙煎所・産地・プロセス・フレーバーを、バッグの写真から自動で入力。</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8.5" cy="8.5" r="2.75"/>
+            <path d="M3.75 18c.6-2.6 2.5-4.1 4.75-4.1s4.15 1.5 4.75 4.1"/>
+            <circle cx="16" cy="9.5" r="2.15"/>
+            <path d="M14.6 13.7c1.8.15 3.25 1.5 3.7 3.5"/>
+          </svg>
+        </div>
+        <h3>Share your coffee journey</h3>
+        <p>フォローした人が今飲んでいるコーヒーを、タイムラインで発見。</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10.8" cy="10.8" r="6.05"/>
+            <path d="M15.3 15.3 20 20"/>
+          </svg>
+        </div>
+        <h3>Every cup,<br>logged and searchable</h3>
+        <p>評価・産地・フレーバー・テイスティングノートを、いつでも振り返って検索。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal" aria-label="規約・プライバシー">
+    <div class="legal-card">
+      <h2>
+        <svg class="legal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6.5 3.5h8l3 3v13.2a.8.8 0 0 1-.8.8H6.5a.8.8 0 0 1-.8-.8V4.3a.8.8 0 0 1 .8-.8Z"/>
+          <path d="M14.3 3.5v3.2h3.2M8.7 12h6.6M8.7 15.3h6.6M8.7 8.7h2.6"/>
+        </svg>
+        利用規約 / Terms of Service
+      </h2>
+      <ul class="lang-list">
+        <li><a href="terms/ja.html"><span>日本語</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="terms/en.html"><span>English</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="terms/ko.html"><span>한국어</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="terms/zh.html"><span>中文</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+      </ul>
+    </div>
+
+    <div class="legal-card">
+      <h2>
+        <svg class="legal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5.5" y="11" width="13" height="9" rx="1.6"/>
+          <path d="M8.3 11V7.8a3.7 3.7 0 0 1 7.4 0V11"/>
+        </svg>
+        プライバシーポリシー / Privacy Policy
+      </h2>
+      <ul class="lang-list">
+        <li><a href="privacy/ja.html"><span>日本語</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="privacy/en.html"><span>English</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="privacy/ko.html"><span>한국어</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+        <li><a href="privacy/zh.html"><span>中文</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6 6.5-6 6.5"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <a class="contact-link" href="https://forms.gle/EqrdLGogdSPpTNsPA" target="_blank" rel="noopener">
+    <span class="contact-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.5" y="5.5" width="17" height="13" rx="1.8"/>
+        <path d="m4.5 7 7.5 6 7.5-6"/>
+      </svg>
+    </span>
+    Contact
+  </a>
+  <p class="copyright">© 2026 CoffeeMore</p>
+</footer>
 </body>
 </html>
