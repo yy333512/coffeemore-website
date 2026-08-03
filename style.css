@@ -78,21 +78,6 @@ main.site-main {
   z-index: 9999;
   pointer-events: none;
 }
-.ig-banner-dots {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(26, 18, 10, 0.55);
-  color: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
 .ig-banner-arrow {
   position: absolute;
   top: 58px;
