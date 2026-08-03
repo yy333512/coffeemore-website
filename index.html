@@ -15,7 +15,367 @@
 <meta property="og:url" content="https://coffeemore.net/">
 <meta name="twitter:card" content="summary">
 <title>CoffeeMore — Scan. Log. Share.</title>
-<link rel="stylesheet" href="/style.css">
+<!-- Inlined rather than linked: Instagram's in-app browser has a known bug
+     where external <link rel="stylesheet"> requests silently fail, leaving
+     the page unstyled. Keep in sync with style.css (used by terms/privacy). -->
+<style>
+:root {
+  /* Brand colors — matches CoffeeMore/Theme/Palette.swift (the iOS app). */
+  --bg: #F8F7F5;
+  --bg-card: #FFFFFF;
+  --fg: #1A1A1A;
+  --muted: #77736F;
+  --accent: #A86C3B;
+  --accent-light: #F3ECE6;
+  --border: #E8E1D6;
+
+  --radius-card: 20px;
+  --radius-chip: 16px;
+  --container: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img { max-width: 100%; display: block; }
+
+main.site-main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Instagram in-app browser notice ---------- */
+.ig-banner {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+.ig-banner-dots {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(26, 18, 10, 0.55);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+.ig-banner-arrow {
+  position: absolute;
+  top: 58px;
+  right: 60px;
+  width: 70px;
+  height: 70px;
+  color: var(--accent);
+}
+.ig-banner-card {
+  position: absolute;
+  top: 118px;
+  right: 14px;
+  left: 14px;
+  max-width: 320px;
+  margin-left: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.1rem 1.25rem 1.25rem;
+  box-shadow: 0 16px 32px -16px rgba(26, 18, 10, 0.3);
+  pointer-events: auto;
+}
+.ig-banner-sparkle {
+  position: absolute;
+  top: -8px;
+  left: -18px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.1;
+  opacity: 0.8;
+}
+.ig-banner-card button {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+.ig-banner-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.ig-banner-title svg { flex-shrink: 0; margin-top: 0.15rem; }
+.ig-banner-body {
+  margin: 0;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.ig-banner-subtitle {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.ig-banner-divider {
+  margin: 0.85rem 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+.hero-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.hero-text { text-align: center; }
+@media (min-width: 900px) {
+  .hero-text { text-align: left; }
+}
+
+.hero-text .app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin: 0 auto 1.25rem;
+}
+@media (min-width: 900px) {
+  .hero-text .app-icon { margin: 0 0 1.25rem; }
+}
+
+.hero-text h1 {
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tagline-en {
+  margin: 0 0 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.6;
+}
+
+.app-store-badge {
+  display: inline-block;
+  width: 168px;
+  aspect-ratio: 119.66407 / 40; /* intrinsic ratio of Apple's official badge SVG */
+}
+.app-store-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.trademark-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hero-phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.phone-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  filter: blur(70px);
+  opacity: 0.8;
+  z-index: 0;
+}
+.phone-frame {
+  position: relative;
+  z-index: 1;
+  width: min(72vw, 290px);
+  aspect-ratio: 1206 / 2622;
+  background: #111214;
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow: 0 24px 48px -24px rgba(26, 18, 10, 0.35);
+}
+.phone-frame picture,
+.phone-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Features ---------- */
+.features {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.features h2 {
+  border-top: none;
+  padding-top: 0;
+  margin: 0 0 2.5rem;
+  font-size: 1.5rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+}
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.1rem;
+  border-radius: var(--radius-chip);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--fg);
+}
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Legal ---------- */
+.legal {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.legal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.75rem;
+}
+.legal-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.75rem;
+  padding-top: 0;
+  border-top: none;
+  font-size: 1rem;
+}
+.legal-icon { color: var(--accent); flex-shrink: 0; }
+.lang-list { list-style: none; margin: 0; padding: 0; }
+.lang-list li { margin: 0; border-top: 1px solid var(--border); }
+.lang-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0.25rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.lang-list a:hover,
+.lang-list a:focus-visible {
+  color: var(--accent);
+}
+.lang-list a svg { color: var(--muted); flex-shrink: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-light);
+}
+.copyright {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+</style>
 </head>
 <body>
 <div id="ig-banner" class="ig-banner" hidden>
