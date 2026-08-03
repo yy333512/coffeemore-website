@@ -73,27 +73,97 @@ main.site-main {
 
 /* ---------- Instagram in-app browser notice ---------- */
 .ig-banner {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+.ig-banner-dots {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(26, 18, 10, 0.55);
+  color: var(--bg);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.25rem;
-  background: var(--accent);
-  color: var(--bg);
-  font-size: 0.85rem;
-  line-height: 1.5;
+  justify-content: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
-.ig-banner p { margin: 0; flex: 1; }
-.ig-banner span { display: block; }
-.ig-banner span + span { margin-top: 0.15rem; opacity: 0.85; }
-.ig-banner button {
-  flex-shrink: 0;
+.ig-banner-arrow {
+  position: absolute;
+  top: 58px;
+  right: 60px;
+  width: 70px;
+  height: 70px;
+  color: var(--accent);
+}
+.ig-banner-card {
+  position: absolute;
+  top: 118px;
+  right: 14px;
+  left: 14px;
+  max-width: 320px;
+  margin-left: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.1rem 1.25rem 1.25rem;
+  box-shadow: 0 16px 32px -16px rgba(26, 18, 10, 0.3);
+  pointer-events: auto;
+}
+.ig-banner-sparkle {
+  position: absolute;
+  top: -8px;
+  left: -18px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.1;
+  opacity: 0.8;
+}
+.ig-banner-card button {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
   background: none;
   border: none;
-  color: inherit;
+  color: var(--muted);
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
   padding: 0.25rem;
+}
+.ig-banner-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.ig-banner-title svg { flex-shrink: 0; margin-top: 0.15rem; }
+.ig-banner-body {
+  margin: 0;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.ig-banner-subtitle {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.ig-banner-divider {
+  margin: 0.85rem 0;
+  border: none;
+  border-top: 1px solid var(--border);
 }
 
 /* ---------- Hero ---------- */
