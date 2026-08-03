@@ -18,6 +18,22 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="ig-banner" class="ig-banner" hidden>
+  <p>
+    <span lang="ja">Instagramのアプリ内ブラウザからはApp Storeへ移動できません。右上の「•••」から「外部ブラウザで開く」を選んでください。</span>
+    <span lang="en">This link won't open the App Store here. Tap ••• at the top right and choose "Open in external browser."</span>
+  </p>
+  <button type="button" id="ig-banner-close" aria-label="Close">✕</button>
+</div>
+<script>
+  if (/Instagram/i.test(navigator.userAgent)) {
+    var banner = document.getElementById("ig-banner");
+    banner.hidden = false;
+    document.getElementById("ig-banner-close").addEventListener("click", function () {
+      banner.hidden = true;
+    });
+  }
+</script>
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-text">

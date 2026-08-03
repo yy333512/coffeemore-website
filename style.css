@@ -71,6 +71,31 @@ main.site-main {
   padding: 0;
 }
 
+/* ---------- Instagram in-app browser notice ---------- */
+.ig-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.ig-banner p { margin: 0; flex: 1; }
+.ig-banner span { display: block; }
+.ig-banner span + span { margin-top: 0.15rem; opacity: 0.85; }
+.ig-banner button {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
 /* ---------- Hero ---------- */
 .hero {
   padding: 4.5rem 1.5rem 3.5rem;
